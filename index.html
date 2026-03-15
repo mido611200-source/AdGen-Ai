@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Ad Generator | مولد إعلانات الذكاء الاصطناعي</title>
+    
+    <!-- Google Fonts: Tajawal -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <header class="navbar">
+      <div class="container nav-container">
+        <a href="#" class="logo" data-link="landing">
+          <i class="ph-fill ph-magic-wand"></i>
+          <span>AdGen AI</span>
+        </a>
+        
+        <nav class="nav-links">
+          <a href="#" class="nav-link" data-link="landing">الرئيسية</a>
+          <a href="#" class="nav-link auth-required" data-link="dashboard" style="display: none;">لوحة التحكم</a>
+        </nav>
+        
+        <div class="nav-actions">
+          <button class="btn btn-text" id="nav-login-btn">تسجيل الدخول</button>
+          <button class="btn btn-primary" data-action="generate">ابدأ إنشاء إعلانك <i class="ph ph-arrow-left"></i></button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content Area where views get injected -->
+    <main id="app-content"></main>
+
+    <!-- Auth Modal -->
+    <div id="auth-modal" class="modal-overlay" style="display: none;">
+      <div class="modal-content card animate-fade-in" style="width: 100%; max-width: 400px; padding: var(--space-6);">
+        <div class="flex justify-between items-center mb-6">
+          <h3 class="font-bold text-primary" id="auth-title" style="font-size: 1.5rem;">تسجيل الدخول</h3>
+          <button class="btn-icon" id="close-auth"><i class="ph ph-x"></i></button>
+        </div>
+        
+        <div class="flex flex-col gap-4 mb-6">
+          <button class="btn btn-secondary w-full flex justify-center items-center gap-2" id="auth-google-btn">
+            <i class="ph-fill ph-google-logo text-primary"></i> <span id="auth-google-text">تسجيل الدخول عبر جوجل</span>
+          </button>
+          
+          <div class="flex items-center gap-2 text-gray" style="font-size: 0.8rem;">
+            <hr class="w-full"><span>أو</span><hr class="w-full">
+          </div>
+        </div>
+
+        <form id="auth-form" class="flex flex-col gap-4">
+          <div class="form-group" id="name-group" style="display: none; margin-bottom: 0;">
+            <label class="form-label">الاسم الكامل</label>
+            <input type="text" class="form-control" id="auth-name" placeholder="أحمد محمد">
+          </div>
+          <div class="form-group" style="margin-bottom: 0;">
+            <label class="form-label">البريد الإلكتروني</label>
+            <input type="email" class="form-control" id="auth-email" placeholder="name@company.com" required>
+          </div>
+          <div class="form-group" style="margin-bottom: 0;">
+            <label class="form-label">كلمة المرور</label>
+            <input type="password" class="form-control" id="auth-pass" placeholder="••••••••" required>
+          </div>
+          <button type="submit" class="btn btn-primary w-full mt-2" id="auth-submit">دخول</button>
+        </form>
+        
+        <p class="text-center mt-6 text-gray" style="font-size: 0.9rem;">
+          <span id="auth-toggle-text">ليس لديك حساب؟</span>
+          <button class="btn-text text-primary font-bold" id="auth-toggle-btn" type="button" style="padding: 0;">سجل الآن</button>
+        </p>
+      </div>
+    </div>
+
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
